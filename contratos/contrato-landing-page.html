@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contrato Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --font: Arial, Helvetica, sans-serif;
+    --fs-body: 11pt;
+    --fs-h1: 14pt;
+    --fs-h2: 11pt;
+    --lh: 1.5;
+    --mt: 2.5cm;
+    --mb: 2.5cm;
+    --ml: 3cm;
+    --mr: 2cm;
+    --sp-top: 2.5cm;
+    --sp-bottom: 2.5cm;
+    --logo-top-h: 1.5cm;
+    --logo-bottom-h: 1.2cm;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: #e6e6e6;
+    color: #111;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+
+  /* ---------- Barra de ferramentas (não imprime) ---------- */
+  .toolbar {
+    position: sticky; top: 0; z-index: 10;
+    background: #fff; border-bottom: 1px solid #d0d0d0;
+    padding: 10px 16px;
+    display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: flex-end;
+    font-size: 13px;
+  }
+  .group { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; padding-right: 18px; border-right: 1px solid #eee; }
+  .group:last-child { border-right: 0; }
+  .group-title { width: 100%; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #666; }
+  .toolbar label { display: flex; flex-direction: column; gap: 3px; color: #333; }
+  .toolbar input[type=number] { width: 70px; }
+  .toolbar input[type=text] { width: 230px; }
+  .toolbar input, .toolbar select, .toolbar button {
+    font: inherit; padding: 5px 7px; border: 1px solid #bbb; border-radius: 6px; background: #fff;
+  }
+  .toolbar button { cursor: pointer; }
+  .toolbar button.primary { background: #111; color: #fff; border-color: #111; font-weight: 600; }
+  .toolbar .file-btn { position: relative; overflow: hidden; }
+  .toolbar .file-btn input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .check { flex-direction: row !important; align-items: center; }
+
+  /* ---------- Folha A4 ---------- */
+  .page {
+    position: relative;
+    width: 21cm; min-height: 29.7cm;
+    margin: 24px auto 48px;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,.18);
+  }
+  .sheet { width: 100%; border-collapse: collapse; }
+  .sheet td { padding: 0 var(--mr) 0 var(--ml); vertical-align: top; }
+  .sp-top { height: var(--sp-top); }
+  .sp-bottom { height: var(--sp-bottom); }
+
+  .logo-box { position: absolute; left: var(--ml); right: var(--mr); display: none; }
+  .logo-box.on { display: block; }
+  .logo-box img { display: inline-block; }
+  #logoTopBox { top: var(--mt); }
+  #logoTopBox img { height: var(--logo-top-h); }
+  #logoBottomBox { bottom: var(--mb); }
+  #logoBottomBox img { height: var(--logo-bottom-h); }
+
+  /* ---------- Texto do contrato ---------- */
+  #doc {
+    font-family: var(--font);
+    font-size: var(--fs-body);
+    line-height: var(--lh);
+    text-align: justify;
+    outline: none;
+  }
+  #doc h1 { font-size: var(--fs-h1); text-align: center; margin: 0 0 1.2em; line-height: 1.3; }
+  #doc h2 { font-size: var(--fs-h2); margin: 1.4em 0 .5em; break-after: avoid; page-break-after: avoid; }
+  #doc p { margin: 0 0 .7em; }
+  #doc ul { margin: 0 0 .7em; padding-left: 1.4em; }
+  #doc li { margin-bottom: .35em; }
+  .local-data { text-align: right; margin-top: 2em !important; }
+  .assinaturas { break-inside: avoid; page-break-inside: avoid; margin-top: 3em; }
+  .assinatura { text-align: center; margin-bottom: 3em; }
+  .assinatura .linha { border-top: 1px solid #000; width: 75%; margin: 0 auto .3em; padding-top: .3em; }
+  .ph { background: #fff3a8; border-radius: 2px; }
+  body.no-highlight .ph { background: none; }
+
+  /* ---------- Impressão ---------- */
+  @page { size: A4; margin: 0; }
+  @media print {
+    body { background: #fff; }
+    .toolbar { display: none !important; }
+    .page { width: 100%; min-height: 0; margin: 0; box-shadow: none; position: static; }
+    .logo-box { position: fixed; }
+    .ph { background: none !important; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @media (max-width: 22cm) {
+    .toolbar input[type=text] { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="group">
+    <span class="group-title">Fonte</span>
+    <label>Família
+      <select id="font">
+        <option value="Arial, Helvetica, sans-serif">Arial</option>
+        <option value="'Times New Roman', Times, serif">Times New Roman</option>
+        <option value="Calibri, Carlito, Arial, sans-serif">Calibri</option>
+        <option value="Georgia, serif">Georgia</option>
+        <option value="'Montserrat', sans-serif">Montserrat</option>
+        <option value="'Poppins', sans-serif">Poppins</option>
+        <option value="'Inter', sans-serif">Inter</option>
+        <option value="'Lora', serif">Lora</option>
+      </select>
+    </label>
+    <label>Texto (pt) <input type="number" id="fsBody" min="6" max="24" step="0.5"></label>
+    <label>Título (pt) <input type="number" id="fsH1" min="8" max="36" step="0.5"></label>
+    <label>Cláusulas (pt) <input type="number" id="fsH2" min="6" max="28" step="0.5"></label>
+    <label>Entrelinhas <input type="number" id="lh" min="1" max="3" step="0.05"></label>
+  </div>
+
+  <div class="group">
+    <span class="group-title">Margens (cm)</span>
+    <label>Superior <input type="number" id="mt" min="0" max="8" step="0.1"></label>
+    <label>Inferior <input type="number" id="mb" min="0" max="8" step="0.1"></label>
+    <label>Esquerda <input type="number" id="ml" min="0" max="8" step="0.1"></label>
+    <label>Direita <input type="number" id="mr" min="0" max="8" step="0.1"></label>
+  </div>
+
+  <div class="group">
+    <span class="group-title">Logo do topo</span>
+    <span class="file-btn"><button type="button">Trocar logo</button><input type="file" id="logoTopFile" accept="image/*"></span>
+    <button type="button" id="logoTopRemove">Remover</button>
+    <label>Altura (cm) <input type="number" id="logoTopH" min="0.3" max="6" step="0.1"></label>
+    <label>Posição
+      <select id="logoTopAlign"><option value="left">Esquerda</option><option value="center">Centro</option><option value="right">Direita</option></select>
+    </label>
+  </div>
+
+  <div class="group">
+    <span class="group-title">Logo do rodapé</span>
+    <span class="file-btn"><button type="button">Trocar logo</button><input type="file" id="logoBottomFile" accept="image/*"></span>
+    <button type="button" id="logoBottomRemove">Remover</button>
+    <label>Altura (cm) <input type="number" id="logoBottomH" min="0.3" max="6" step="0.1"></label>
+    <label>Posição
+      <select id="logoBottomAlign"><option value="left">Esquerda</option><option value="center">Centro</option><option value="right">Direita</option></select>
+    </label>
+  </div>
+
+  <div class="group">
+    <span class="group-title">Local e data</span>
+    <label>Cidade padrão <input type="text" id="city"></label>
+    <label>Data <input type="date" id="date"></label>
+  </div>
+
+  <div class="group">
+    <span class="group-title">Ações</span>
+    <label class="check"><input type="checkbox" id="highlight"> Destacar campos {{ }}</label>
+    <button type="button" id="reset">Restaurar padrões</button>
+    <button type="button" class="primary" id="print">Imprimir / Salvar PDF</button>
+  </div>
+</div>
+
+<div class="page">
+  <div class="logo-box" id="logoTopBox"><img id="logoTopImg" alt=""></div>
+  <div class="logo-box" id="logoBottomBox"><img id="logoBottomImg" alt=""></div>
+
+  <table class="sheet">
+    <thead><tr><td><div class="sp-top"></div></td></tr></thead>
+    <tfoot><tr><td><div class="sp-bottom"></div></td></tr></tfoot>
+    <tbody><tr><td>
+<div id="doc" contenteditable="true" spellcheck="false">
+
+<h1>CONTRATO DE PRESTAÇÃO DE SERVIÇOS<br>CRIAÇÃO DE LANDING PAGE</h1>
+
+<p><strong>CONTRATANTE:</strong> {{contratante_nome}}, inscrito(a) no {{contratante_tipo_documento}} sob o n.º {{contratante_documento}}, com sede/endereço na {{contratante_endereco}}, {{contratante_cidade}}/{{contratante_uf}}, CEP {{contratante_cep}}, neste ato representado(a) por {{contratante_representante_nome}}, {{contratante_representante_qualificacao}}, inscrito(a) no CPF sob o n.º {{contratante_representante_cpf}}.</p>
+
+<p><strong>CONTRATADA:</strong> {{contratada_nome}}, inscrita no CNPJ sob o n.º {{contratada_cnpj}}, com sede na {{contratada_endereco}}, {{contratada_cidade}}/{{contratada_uf}}, neste ato representada por sua titular, {{contratada_representante_nome}}, brasileira, inscrita no CPF sob o n.º {{contratada_representante_cpf}}.</p>
+
+<p>As partes firmam o presente contrato, que se regerá pelas cláusulas a seguir.</p>
+
+<h2>CLÁUSULA 1ª – DO OBJETO</h2>
+<p>1.1. O objeto deste contrato é a criação de <strong>01 (uma) landing page</strong> para o CONTRATANTE, compreendendo:</p>
+<ul>
+  <li><strong>I – Briefing e estratégia:</strong> levantamento de informações por formulário e/ou reunião e definição interna da estrutura estratégica da página. O estudo estratégico é metodologia própria da CONTRATADA, não havendo obrigação de entrega de documentos internos.</li>
+  <li><strong>II – Desenvolvimento:</strong> layout personalizado, estrutura estratégica de conversão, versão responsiva (celular e computador) e botões de contato ({{integracoes_incluidas}}).</li>
+  <li><strong>III – Aprovação:</strong> apresentação da página ao CONTRATANTE, com até <strong>02 (duas) rodadas de alterações</strong>.</li>
+  <li><strong>IV – Entrega:</strong> publicação da página no domínio {{dominio}} após a aprovação final.</li>
+</ul>
+<p>1.2. Alterações além das rodadas previstas, ou fora do objeto acima, serão orçadas à parte.</p>
+
+<h2>CLÁUSULA 2ª – DAS OBRIGAÇÕES DO CONTRATANTE</h2>
+<p>2.1. Compete ao CONTRATANTE preencher o briefing, fornecer os textos, imagens e informações necessários, responder às solicitações da CONTRATADA e aprovar as etapas do projeto dentro dos prazos estabelecidos.</p>
+
+<h2>CLÁUSULA 3ª – DAS OBRIGAÇÕES DA CONTRATADA</h2>
+<p>3.1. A CONTRATADA executará os serviços com zelo, técnica e boa-fé, conforme o briefing aprovado, podendo definir as ferramentas, plataformas e métodos de trabalho.</p>
+<p>3.2. A CONTRATADA <strong>não garante</strong> resultados comerciais, número de visitas, contatos, vendas, faturamento, posicionamento em buscadores ou desempenho da landing page, pois dependem de fatores externos à execução do objeto contratado.</p>
+
+<h2>CLÁUSULA 4ª – DOS PRAZOS E DA APROVAÇÃO</h2>
+<p>4.1. A CONTRATADA apresentará a primeira versão da landing page em até <strong>30 (trinta) dias corridos</strong>, contados do recebimento de todo o conteúdo e informações necessários.</p>
+<p>4.2. O CONTRATANTE terá até <strong>07 (sete) dias corridos</strong> para analisar cada versão e encaminhar as alterações. Recebidas as solicitações, a CONTRATADA terá até <strong>30 (trinta) dias corridos</strong> para apresentar a nova versão, aplicando-se os mesmos prazos a cada rodada.</p>
+<p>4.3. Os prazos da CONTRATADA são contados a partir do efetivo recebimento das informações, materiais ou solicitações do CONTRATANTE.</p>
+<p>4.4. A ausência de manifestação do CONTRATANTE no prazo de 07 (sete) dias corridos será considerada <strong>aprovação tácita</strong> da etapa, autorizando a CONTRATADA a prosseguir.</p>
+
+<h2>CLÁUSULA 5ª – DO VALOR E DA FORMA DE PAGAMENTO</h2>
+<p>5.1. Pelos serviços deste contrato, o CONTRATANTE pagará à CONTRATADA o valor total de <strong>R$ {{valor_total}} ({{valor_total_extenso}})</strong>, por meio de <strong>cartão de crédito</strong>, em <strong>{{numero_parcelas}}</strong>.</p>
+
+<h2>CLÁUSULA 6ª – DO DOMÍNIO E DA HOSPEDAGEM</h2>
+<p>6.1. O domínio será registrado <strong>em nome do CONTRATANTE</strong>. O primeiro ano de domínio e de hospedagem está incluído no valor da Cláusula 5ª.</p>
+<p>6.2. A hospedagem, a publicação e o gerenciamento técnico da página ficarão sob administração da CONTRATADA, nas plataformas por ela definidas.</p>
+<p>6.3. Completado 01 (um) ano da publicação, a continuidade da página dependerá do pagamento de <strong>R$ {{valor_renovacao_anual}} ({{valor_renovacao_anual_extenso}})</strong>, referente a mais 01 (um) ano de hospedagem e de domínio, e assim sucessivamente a cada ano.</p>
+
+<h2>CLÁUSULA 7ª – DA PROPRIEDADE INTELECTUAL E DO PORTFÓLIO</h2>
+<p>7.1. O CONTRATANTE terá direito de uso, por prazo indeterminado, da landing page final aprovada, para fins da sua atividade.</p>
+<p>7.2. Permanecem de titularidade exclusiva da CONTRATADA, sem transferência ao CONTRATANTE: arquivos editáveis e de trabalho, códigos, templates, componentes reutilizáveis, estruturas, metodologia, estudos estratégicos e versões não aprovadas.</p>
+<p>7.3. A CONTRATADA poderá exibir o trabalho, a marca e o nome do CONTRATANTE em seu portfólio, site, redes sociais e apresentações comerciais, para divulgação de seus serviços, sem ônus para nenhuma das partes.</p>
+<p>7.4. Alterações feitas na página pelo CONTRATANTE ou por terceiros após a entrega encerram a responsabilidade técnica da CONTRATADA sobre o resultado.</p>
+
+<h2>CLÁUSULA 8ª – DO SUPORTE PÓS-ENTREGA</h2>
+<p>8.1. Após a publicação, a CONTRATADA corrigirá, sem custo, <strong>falhas técnicas</strong> de sua responsabilidade (erros de funcionamento ou de exibição da página).</p>
+<p>8.2. Alterações de conteúdo, de layout ou novas funcionalidades solicitadas após a entrega serão orçadas à parte.</p>
+
+<h2>CLÁUSULA 9ª – DA LIMITAÇÃO DE RESPONSABILIDADE</h2>
+<p>9.1. A responsabilidade total da CONTRATADA por danos decorrentes deste contrato fica <strong>limitada ao valor efetivamente recebido</strong> do CONTRATANTE, excluídos lucros cessantes, perda de oportunidade ou de clientes e danos indiretos, ressalvados os casos de dolo.</p>
+<p>9.2. A CONTRATADA não responde por instabilidades, quedas, falhas, ataques ou alterações de serviços de terceiros (hospedagem, registradores de domínio, plataformas, WhatsApp, Google, Meta etc.), comprometendo-se a envidar esforços razoáveis para restabelecer a página enquanto estiver sob sua gestão.</p>
+<p>9.3. Nenhuma das partes responde por atrasos ou falhas decorrentes de caso fortuito ou força maior (art. 393 do Código Civil).</p>
+
+<h2>CLÁUSULA 10ª – DISPOSIÇÕES GERAIS</h2>
+<p>10.1. Qualquer alteração de escopo, valor ou prazo deverá ser previamente ajustada entre as partes.</p>
+<p>10.2. O contrato vigora da assinatura até a conclusão do objeto, permanecendo as obrigações que por sua natureza subsistam ao encerramento (renovação anual, propriedade intelectual, portfólio e limitação de responsabilidade).</p>
+<p>10.3. As partes reconhecem a validade da assinatura eletrônica deste instrumento, nos termos da MP 2.200-2/2001 e da Lei 14.063/2020.</p>
+<p>10.4. Fica eleito o foro da Comarca de <strong>{{foro_comarca}}</strong> para dirimir quaisquer controvérsias deste contrato.</p>
+
+<p>E, por estarem justas e contratadas, as partes firmam o presente instrumento.</p>
+
+<div class="assinaturas">
+  <p class="local-data"><span id="cityOut"></span>, <span id="dateOut"></span>.</p>
+  <div class="assinatura">
+    <div style="height:2.5em"></div>
+    <div class="linha"><strong>CONTRATANTE</strong></div>
+    {{contratante_representante_nome}} – {{contratante_nome}}
+  </div>
+  <div class="assinatura">
+    <div style="height:2.5em"></div>
+    <div class="linha"><strong>CONTRATADA</strong></div>
+    {{contratada_representante_nome}} – {{contratada_nome}}
+  </div>
+</div>
+
+</div>
+    </td></tr></tbody>
+  </table>
+</div>
+
+<script>
+(function () {
+  var KEY = 'contrato-lp-config-v1';
+  var DEFAULTS = {
+    font: 'Arial, Helvetica, sans-serif',
+    fsBody: 11, fsH1: 14, fsH2: 11, lh: 1.5,
+    mt: 2.5, mb: 2.5, ml: 3, mr: 2,
+    logoTop: '', logoTopH: 1.5, logoTopAlign: 'center',
+    logoBottom: '', logoBottomH: 1.2, logoBottomAlign: 'center',
+    city: 'Santo Antônio da Patrulha/RS',
+    highlight: true
+  };
+  var MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+
+  var cfg = load();
+  var $ = function (id) { return document.getElementById(id); };
+  var root = document.documentElement.style;
+
+  function load() {
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) {}
+    var out = {};
+    for (var k in DEFAULTS) out[k] = (k in saved) ? saved[k] : DEFAULTS[k];
+    return out;
+  }
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(cfg)); }
+    catch (e) { alert('Não foi possível salvar as preferências (a imagem do logo pode ser grande demais). Tente um arquivo menor.'); }
+  }
+
+  // Destaca os campos {{ }} só na tela
+  var doc = $('doc');
+  doc.innerHTML = doc.innerHTML.replace(/\{\{[^{}]+\}\}/g, function (m) { return '<span class="ph">' + m + '</span>'; });
+
+  function apply() {
+    root.setProperty('--font', cfg.font);
+    root.setProperty('--fs-body', cfg.fsBody + 'pt');
+    root.setProperty('--fs-h1', cfg.fsH1 + 'pt');
+    root.setProperty('--fs-h2', cfg.fsH2 + 'pt');
+    root.setProperty('--lh', cfg.lh);
+    root.setProperty('--mt', cfg.mt + 'cm');
+    root.setProperty('--mb', cfg.mb + 'cm');
+    root.setProperty('--ml', cfg.ml + 'cm');
+    root.setProperty('--mr', cfg.mr + 'cm');
+    root.setProperty('--logo-top-h', cfg.logoTopH + 'cm');
+    root.setProperty('--logo-bottom-h', cfg.logoBottomH + 'cm');
+
+    // Espaço reservado em cada página = margem + logo (se houver) + respiro
+    var GAP = 0.5;
+    root.setProperty('--sp-top', (+cfg.mt + (cfg.logoTop ? +cfg.logoTopH + GAP : 0)) + 'cm');
+    root.setProperty('--sp-bottom', (+cfg.mb + (cfg.logoBottom ? +cfg.logoBottomH + GAP : 0)) + 'cm');
+
+    setLogo('Top', cfg.logoTop, cfg.logoTopAlign);
+    setLogo('Bottom', cfg.logoBottom, cfg.logoBottomAlign);
+
+    $('cityOut').textContent = cfg.city;
+    document.body.classList.toggle('no-highlight', !cfg.highlight);
+  }
+
+  function setLogo(pos, src, align) {
+    var box = $('logo' + pos + 'Box');
+    box.classList.toggle('on', !!src);
+    box.style.textAlign = align;
+    $('logo' + pos + 'Img').src = src || '';
+  }
+
+  function fill() {
+    ['font','fsBody','fsH1','fsH2','lh','mt','mb','ml','mr','logoTopH','logoTopAlign','logoBottomH','logoBottomAlign','city']
+      .forEach(function (k) { $(k).value = cfg[k]; });
+    $('highlight').checked = cfg.highlight;
+  }
+
+  ['font','fsBody','fsH1','fsH2','lh','mt','mb','ml','mr','logoTopH','logoTopAlign','logoBottomH','logoBottomAlign','city']
+    .forEach(function (k) {
+      $(k).addEventListener('input', function (e) {
+        var v = e.target.value;
+        if (e.target.type === 'number') { if (v === '' || isNaN(+v)) return; v = +v; }
+        cfg[k] = v; apply(); save();
+      });
+    });
+  $('highlight').addEventListener('change', function (e) { cfg.highlight = e.target.checked; apply(); save(); });
+
+  ['Top','Bottom'].forEach(function (pos) {
+    $('logo' + pos + 'File').addEventListener('change', function (e) {
+      var f = e.target.files && e.target.files[0];
+      if (!f) return;
+      var r = new FileReader();
+      r.onload = function () { cfg['logo' + pos] = r.result; apply(); save(); };
+      r.readAsDataURL(f);
+      e.target.value = '';
+    });
+    $('logo' + pos + 'Remove').addEventListener('click', function () { cfg['logo' + pos] = ''; apply(); save(); });
+  });
+
+  // Data: sempre a de hoje ao abrir, pode ser trocada manualmente
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function renderDate(iso) {
+    var p = iso.split('-');
+    $('dateOut').textContent = (+p[2]) + ' de ' + MESES[+p[1] - 1] + ' de ' + p[0];
+  }
+  var hoje = new Date();
+  var isoHoje = hoje.getFullYear() + '-' + pad(hoje.getMonth() + 1) + '-' + pad(hoje.getDate());
+  $('date').value = isoHoje;
+  renderDate(isoHoje);
+  $('date').addEventListener('input', function (e) { if (e.target.value) renderDate(e.target.value); });
+
+  $('reset').addEventListener('click', function () {
+    if (!confirm('Voltar fonte, margens, logos e cidade para o padrão?')) return;
+    cfg = JSON.parse(JSON.stringify(DEFAULTS));
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    fill(); apply();
+  });
+  $('print').addEventListener('click', function () { window.print(); });
+
+  fill(); apply();
+})();
+</script>
+</body>
+</html>
