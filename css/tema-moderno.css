@@ -207,3 +207,39 @@ body::after {
 /* Sem linhas verticais sobre as fotos */
 body::after { display: none; }
 .scroll-hint { display: none; }
+
+/* =========================================================================
+   FOTOS MENORES, MAIS RESPIRO
+   As fotos das seções deixam de ir até a borda: ficam dentro da grade,
+   menores, com bastante espaço livre em volta.
+   ========================================================================= */
+.section:has(> .split) { padding-block: var(--section-y); }
+.split .split__media { margin-inline: 0; width: 100%; max-width: 420px; }
+.split .split__media .frame__img { aspect-ratio: 4 / 5 !important; min-height: 0; }
+.split .split__media .frame, .split .split__media .frame__img { height: auto; }
+
+@media (max-width: 1023px) {
+  .split { gap: 40px; }
+  .split .split__media { max-width: 340px; }
+  .split--reverse .split__media { margin-left: 0; }
+}
+@media (min-width: 1024px) {
+  .split { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 120px; min-height: 0; align-items: center; }
+  .split--reverse { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
+  .split .split__media { margin: 0; width: 100%; max-width: 400px; justify-self: start; }
+  .split--reverse .split__media { margin: 0; justify-self: end; }
+  .split .split__content, .split--reverse .split__content { padding: 0; max-width: 560px; }
+}
+@media (min-width: 1440px) { .split { gap: 160px; } }
+
+/* Nossa história e retratos */
+.historia__media { max-width: 380px; }
+.profile__photo { max-width: 340px; }
+.flagrante__photo { max-width: 300px; }
+@media (max-width: 1023px) {
+  .split .split__media { max-width: 300px; }
+  .split .split__media .frame__img { aspect-ratio: 4 / 3 !important; }
+  .historia__media { max-width: 300px; }
+  .profile__photo { max-width: 280px; }
+  .flagrante__photo { max-width: 240px; }
+}
