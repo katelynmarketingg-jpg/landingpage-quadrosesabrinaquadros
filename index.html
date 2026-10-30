@@ -81,17 +81,17 @@
 
     <nav class="nav" id="menu" aria-label="Menu principal">
       <ul>
-        <li><a href="#historia">Nossa história</a></li>
-        <li><a href="#areas">Áreas de atuação</a></li>
+        <li><a href="#historia">Quem somos</a></li>
+        <li><a href="#areas">Como atuamos</a></li>
         <li class="nav__drop">
-          <a href="#solucoes" class="nav__drop-toggle" aria-haspopup="true">Soluções <span class="nav__caret" aria-hidden="true"></span></a>
+          <a href="#solucoes" class="nav__drop-toggle" data-sol-open aria-haspopup="true">Soluções por área <span class="nav__caret" aria-hidden="true"></span></a>
           <ul class="nav__sub">
-              <li><a href="#sol-previdenciario" data-tab-link="previdenciario">Previdenciário</a></li>
-              <li><a href="#sol-trabalhista" data-tab-link="trabalhista">Trabalhista</a></li>
-              <li><a href="#sol-criminal" data-tab-link="criminal">Criminal</a></li>
-              <li><a href="#sol-familia" data-tab-link="familia">Família</a></li>
-              <li><a href="#sol-sucessoes" data-tab-link="sucessoes">Sucessões</a></li>
-              <li><a href="#sol-civel" data-tab-link="civel">Cível</a></li>
+              <li><a href="#sol-previdenciario" data-tab-link="previdenciario"><span class="nav__sub-name">Direito Previdenciário</span><span class="nav__sub-hint">Aposentadorias, INSS, BPC/LOAS</span></a></li>
+              <li><a href="#sol-trabalhista" data-tab-link="trabalhista"><span class="nav__sub-name">Direito Trabalhista</span><span class="nav__sub-hint">Rescisão, FGTS, horas extras</span></a></li>
+              <li><a href="#sol-criminal" data-tab-link="criminal"><span class="nav__sub-name">Direito Criminal</span><span class="nav__sub-hint">Inquérito, prisão, defesa</span></a></li>
+              <li><a href="#sol-familia" data-tab-link="familia"><span class="nav__sub-name">Direito de Família</span><span class="nav__sub-hint">Divórcio, pensão, guarda</span></a></li>
+              <li><a href="#sol-sucessoes" data-tab-link="sucessoes"><span class="nav__sub-name">Direito das Sucessões</span><span class="nav__sub-hint">Inventário, testamento</span></a></li>
+              <li><a href="#sol-civel" data-tab-link="civel"><span class="nav__sub-name">Direito Cível</span><span class="nav__sub-hint">Contratos, indenizações, consumidor</span></a></li>
           </ul>
         </li>
         <li>
@@ -416,12 +416,13 @@
 </section>
 
 <!-- ===================== SOLUÇÕES (abas por área) ===================== -->
-<section class="section section--beige" id="solucoes" aria-labelledby="sol-title">
+<section class="section section--beige solucoes" id="solucoes" aria-labelledby="sol-title" hidden>
   <div class="container">
     <header class="section-head">
       <p class="eyebrow reveal">Soluções</p>
       <h2 class="h2 reveal" id="sol-title">Como podemos ajudar em cada área.</h2>
       <p class="reveal">Escolha uma área para ver, de forma resumida, as principais demandas em que atuamos.</p>
+      <button type="button" class="solucoes__close" data-sol-close aria-controls="solucoes">Fechar <span aria-hidden="true">×</span></button>
     </header>
     <div class="tabs" data-tabs>
       <div class="tabs__list" role="tablist" aria-label="Áreas do Direito">

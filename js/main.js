@@ -139,11 +139,14 @@
   }
 })();
 
-/* 8. Abas de Soluções (por área) + links do menu que abrem uma aba */
+/* 8. Seção Soluções: escondida até a pessoa clicar em "Soluções" no menu.
+      Abas por área, links do menu abrem a aba certa. */
 (function () {
+  var section = document.getElementById('solucoes');
   var root = document.querySelector('[data-tabs]');
-  if (!root) return;
+  if (!section || !root) return;
   var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+
   function select(tab, focus) {
     tabs.forEach(function (t) {
       var on = t === tab;
@@ -155,8 +158,30 @@
     var list = tab.parentNode;
     list.scrollLeft = tab.offsetLeft - (list.clientWidth - tab.offsetWidth) / 2;
   }
+  function reveal() {
+    section.hidden = false;
+    section.querySelectorAll('.reveal, .rule').forEach(function (el) { el.classList.add('is-visible'); });
+  }
+  function open(slug, smooth) {
+    reveal();
+    var tab = slug && document.getElementById('tab-' + slug);
+    if (tab) select(tab);
+    requestAnimationFrame(function () {
+      section.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+    });
+  }
+  function close() {
+    section.hidden = true;
+    history.replaceState(null, '', location.pathname + location.search);
+    var areas = document.getElementById('areas');
+    if (areas) areas.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   tabs.forEach(function (t, i) {
-    t.addEventListener('click', function () { select(t); });
+    t.addEventListener('click', function () {
+      select(t);
+      history.replaceState(null, '', '#sol-' + t.id.replace('tab-', ''));
+    });
     t.addEventListener('keydown', function (e) {
       var k = e.key, n = null;
       if (k === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
@@ -166,26 +191,34 @@
       if (n) { e.preventDefault(); select(n, true); }
     });
   });
-  function openFromHash() {
-    var m = location.hash.match(/^#sol-(.+)$/);
-    if (!m) return;
-    var tab = document.getElementById('tab-' + m[1]);
-    if (tab) {
-      select(tab);
-      setTimeout(function () { root.scrollIntoView({ block: 'start' }); }, 60);
-    }
-  }
+
   document.querySelectorAll('[data-tab-link]').forEach(function (a) {
     a.addEventListener('click', function (e) {
-      var tab = document.getElementById('tab-' + a.getAttribute('data-tab-link'));
-      if (!tab) return;
       e.preventDefault();
-      select(tab);
+      var slug = a.getAttribute('data-tab-link');
       a.blur();
-      history.replaceState(null, '', '#sol-' + a.getAttribute('data-tab-link'));
-      root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', '#sol-' + slug);
+      open(slug, true);
     });
   });
-  window.addEventListener('hashchange', openFromHash);
-  openFromHash();
+  document.querySelectorAll('[data-sol-open]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      a.blur();
+      history.replaceState(null, '', '#solucoes');
+      open(null, true);
+    });
+  });
+  document.querySelectorAll('[data-sol-close]').forEach(function (b) {
+    b.addEventListener('click', close);
+  });
+
+  function fromHash() {
+    var h = location.hash;
+    var m = h.match(/^#sol-(.+)$/);
+    if (m) open(m[1], false);
+    else if (h === '#solucoes') open(null, false);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
 })();

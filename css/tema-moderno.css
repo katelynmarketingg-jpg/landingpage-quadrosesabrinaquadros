@@ -470,3 +470,37 @@ section[id] { scroll-margin-top: 72px; }
 .historia__intro--center { margin-top: -220px; }
 @media (max-width: 767px) { .historia__intro--center { margin-top: -120px; } }
 .historia__intro--center .signature, .historia__intro--center .eyebrow, .historia__intro--center .h2 { text-shadow: 0 2px 20px rgba(15,14,13,.7); }
+
+/* =========================================================================
+   Soluções escondida por padrão + menu mais claro
+   ========================================================================= */
+.solucoes[hidden] { display: none !important; }
+.solucoes .section-head { position: relative; }
+.solucoes__close {
+  position: absolute; top: 0; right: 0;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: none; border: 1px solid rgba(122,101,68,.4); cursor: pointer;
+  font-family: var(--font-main); font-size: .66rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--texto); padding: 10px 14px;
+  transition: background-color .3s var(--ease), border-color .3s var(--ease);
+}
+.solucoes__close span { font-size: 1rem; line-height: 1; letter-spacing: 0; }
+.solucoes__close:hover { background: var(--offwhite); border-color: var(--bege-escuro); }
+@media (max-width: 767px) { .solucoes__close { position: static; margin-top: 8px; } .solucoes .section-head { display: flex; flex-direction: column; align-items: flex-start; } }
+
+/* Submenu com nome + resumo de cada área */
+.nav__sub a:not(.btn) { display: flex !important; flex-direction: column; gap: 3px; text-transform: none !important; letter-spacing: 0 !important; }
+.nav__sub-name { font-size: .78rem; font-weight: 700; letter-spacing: .02em; color: var(--texto-claro); }
+.nav__sub-hint { font-size: .72rem; color: var(--texto-claro-sec); }
+.nav__sub a:not(.btn):hover .nav__sub-name { color: var(--bege); }
+@media (min-width: 1024px) {
+  .nav__sub { min-width: 280px; padding: 14px 22px !important; }
+  .nav__sub a:not(.btn) { padding: 10px 0 !important; border-bottom: 1px solid rgba(194,168,128,.12) !important; }
+  .nav__sub li:last-child a:not(.btn) { border-bottom: 0 !important; }
+}
+@media (max-width: 1023px) {
+  .nav__sub a:not(.btn) { padding: 10px 0 !important; }
+}
+#solucoes .section-head { max-width: none; }
+#solucoes .section-head > :not(.solucoes__close) { max-width: 760px; }
+@media (min-width: 1024px) { .solucoes { padding-top: 110px; } }
