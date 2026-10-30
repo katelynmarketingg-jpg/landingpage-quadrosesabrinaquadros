@@ -292,3 +292,8 @@ body::after { display: none; }
 .card, .mini-card { cursor: pointer; }
 .card__link { position: absolute; inset: 0; z-index: 2; }
 .card__link:focus-visible { outline: 2px solid var(--bege); outline-offset: -2px; }
+
+/* Encerramento: foto de fundo mais visível e nítida */
+.closing__bg img { filter: grayscale(1) contrast(1.08); opacity: .5; transform: none; }
+.closing__bg::after { background: radial-gradient(ellipse at center, rgba(15,14,13,.45) 0%, rgba(15,14,13,.6) 60%, rgba(15,14,13,.85) 100%); }
+.closing__inner .h2, .closing__inner p { text-shadow: 0 2px 18px rgba(15,14,13,.6); }
