@@ -556,3 +556,19 @@ section[id] { scroll-margin-top: 72px; }
 .btn--wa-destaque { width: 100%; margin-top: 2.2rem; min-height: 68px; font-size: .8rem; letter-spacing: .18em; box-shadow: 0 14px 34px -14px rgba(194,168,128,.55); }
 .btn--wa-destaque .icon { width: 22px; height: 22px; }
 @media (min-width: 1024px) { .btn--wa-destaque { width: auto; padding-inline: 2.6rem; } }
+
+/* Nossa história: fundo contínuo com a cor do estúdio + vinheta suave */
+.historia__band { background: linear-gradient(180deg, #4a3e37 0%, #5f5149 35%, #574940 62%, #3a302b 82%, var(--preto) 100%); }
+.historia__band-img {
+  -webkit-mask-image: linear-gradient(90deg, transparent 2%, rgba(0,0,0,.6) 12%, #000 24%, #000 76%, rgba(0,0,0,.6) 88%, transparent 98%), linear-gradient(180deg, #000 60%, transparent 94%);
+  mask-image: linear-gradient(90deg, transparent 2%, rgba(0,0,0,.6) 12%, #000 24%, #000 76%, rgba(0,0,0,.6) 88%, transparent 98%), linear-gradient(180deg, #000 60%, transparent 94%);
+}
+.historia__band::after {
+  top: 0; height: auto;
+  background:
+    radial-gradient(ellipse 55% 70% at 50% 42%, transparent 0%, transparent 45%, rgba(15,14,13,.45) 75%, rgba(15,14,13,.85) 100%),
+    linear-gradient(180deg, transparent 65%, var(--preto) 100%);
+}
+/* Retratos com cor natural (sem dessaturação) */
+.profile__photo .frame__img img, .profile:hover .profile__photo .frame__img img { filter: saturate(1.08) contrast(1.03); }
+.historia__band-img { filter: saturate(1.05) contrast(1.03); }
