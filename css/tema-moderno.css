@@ -552,3 +552,7 @@ section[id] { scroll-margin-top: 72px; }
 .negado__chips li { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--bege-escuro); border: 1px solid rgba(122,101,68,.35); padding: 8px 12px; }
 .section .maternidade__nota { font-size: .8rem; color: var(--texto-sec); margin: 1rem 0 1.8rem; }
 #salario-maternidade .negado__lawyer strong { display: inline; }
+/* Flagrante: botão de WhatsApp em destaque */
+.btn--wa-destaque { width: 100%; margin-top: 2.2rem; min-height: 68px; font-size: .8rem; letter-spacing: .18em; box-shadow: 0 14px 34px -14px rgba(194,168,128,.55); }
+.btn--wa-destaque .icon { width: 22px; height: 22px; }
+@media (min-width: 1024px) { .btn--wa-destaque { width: auto; padding-inline: 2.6rem; } }
