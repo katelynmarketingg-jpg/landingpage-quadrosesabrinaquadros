@@ -287,3 +287,38 @@ body::after { display: none; }
       linear-gradient(0deg, rgba(15,14,13,.45) 0%, transparent 22%);
   }
 }
+
+/* =========================================================================
+   TESTE: topo com a foto inteira, sócios ao centro, texto centralizado embaixo
+   ========================================================================= */
+.hero--center { text-align: center; }
+.hero--center .hero__content { max-width: none; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.hero--center .hero__eyebrow { justify-content: center; }
+.hero--center .hero__eyebrow::after { content: ""; width: 28px; height: 1px; background: currentColor; flex: none; }
+.hero--center .hero__text { max-width: 78ch; margin-inline: auto; }
+@media (min-width: 1024px) {
+  .hero.hero--center { min-height: 100vh; min-height: 100svh; padding: 140px 0 64px; align-items: flex-end; }
+  .hero--center .container { max-width: none; padding-inline: clamp(32px, 5vw, 96px); }
+  .hero--center .hero__bg img {
+    position: absolute; inset: 0; top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 28%;
+  }
+  .hero--center .hero__bg::after {
+    background:
+      linear-gradient(180deg, rgba(15,14,13,.5) 0, rgba(15,14,13,0) 150px),
+      linear-gradient(0deg, var(--preto) 0%, rgba(15,14,13,.9) 16%, rgba(15,14,13,.45) 34%, rgba(15,14,13,0) 52%);
+  }
+  .hero--center .hero__title { font-size: clamp(2rem, 1rem + 2.6vw, 3.4rem); letter-spacing: -0.02em; line-height: 1.08; margin-bottom: 1.4rem; }
+  .hero--center .hero__text { font-size: 1rem; max-width: 92ch; margin-bottom: 1.8rem; }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero.hero--center { --hero-img: auto; }
+}
+@media (min-width: 1024px) {
+  .hero--center .hero__title, .hero--center .hero__eyebrow, .hero--center .hero__text { text-shadow: 0 2px 22px rgba(15,14,13,.65); }
+  .hero--center .hero__bg::after {
+    background:
+      linear-gradient(180deg, rgba(15,14,13,.5) 0, rgba(15,14,13,0) 150px),
+      linear-gradient(0deg, var(--preto) 0%, rgba(15,14,13,.9) 18%, rgba(15,14,13,.55) 36%, rgba(15,14,13,0) 56%);
+  }
+}
