@@ -152,8 +152,8 @@ body::after {
   }
   .hero__bg::after {
     background:
-      linear-gradient(90deg, var(--preto) 0%, var(--preto) 32%, rgba(15,14,13,.75) 44%, rgba(15,14,13,.15) 66%, rgba(15,14,13,.05) 100%),
-      linear-gradient(0deg, rgba(15,14,13,.75) 0%, transparent 32%);
+      linear-gradient(90deg, var(--preto) 0%, var(--preto) 30%, rgba(15,14,13,.5) 42%, rgba(15,14,13,0) 58%),
+      linear-gradient(0deg, rgba(15,14,13,.45) 0%, transparent 22%);
   }
 }
 .hero__bg:has(img) .ph-label { display: none; }
@@ -162,7 +162,7 @@ body::after {
   .hero { min-height: 0; padding-top: calc(var(--hero-img) - 40px); padding-bottom: 96px; --hero-img: min(112vw, 640px); }
   .hero__bg img { position: absolute; top: 0; left: 0; width: 100%; height: var(--hero-img); object-position: 50% 30%; }
   .hero__bg::after {
-    background: linear-gradient(180deg, rgba(15,14,13,.45) 0, rgba(15,14,13,0) 110px, rgba(15,14,13,0) calc(var(--hero-img) - 200px), var(--preto) calc(var(--hero-img) - 30px), var(--preto) 100%);
+    background: linear-gradient(180deg, rgba(15,14,13,.3) 0, rgba(15,14,13,0) 90px, rgba(15,14,13,0) calc(var(--hero-img) - 200px), var(--preto) calc(var(--hero-img) - 30px), var(--preto) 100%);
   }
 }
 
@@ -182,3 +182,6 @@ body::after {
 #salario-maternidade .frame__img img { object-position: 45% 35%; }
 #bpc-loas .frame__img img { object-position: 50% 30%; }
 #criminal .frame__img img { object-position: 55% 45%; }
+
+/* Foto do topo um pouco mais clara */
+.hero__bg img { filter: saturate(.9) contrast(1.02) brightness(1.06); }
