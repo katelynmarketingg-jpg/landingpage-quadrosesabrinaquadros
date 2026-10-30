@@ -340,3 +340,6 @@ body::after { display: none; }
 @media (min-width: 1024px) {
   .hero--center .hero__bg img { -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent 98%); mask-image: linear-gradient(180deg, #000 72%, transparent 98%); }
 }
+@media (min-width: 1024px) {
+  .hero--center .hero__bg img { translate: 0 -17%; -webkit-mask-image: linear-gradient(180deg, #000 64%, transparent 92%); mask-image: linear-gradient(180deg, #000 64%, transparent 92%); }
+}
