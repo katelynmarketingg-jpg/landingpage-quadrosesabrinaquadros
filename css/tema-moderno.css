@@ -550,3 +550,5 @@ section[id] { scroll-margin-top: 72px; }
 .negado__lawyer strong { display: inline; margin: 0; }
 .negado__chips { list-style: none; padding: 0; margin: 1.2rem 0 1.8rem; display: flex; flex-wrap: wrap; gap: 8px; }
 .negado__chips li { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--bege-escuro); border: 1px solid rgba(122,101,68,.35); padding: 8px 12px; }
+.section .maternidade__nota { font-size: .8rem; color: var(--texto-sec); margin: 1rem 0 1.8rem; }
+#salario-maternidade .negado__lawyer strong { display: inline; }
