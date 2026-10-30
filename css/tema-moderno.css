@@ -1,0 +1,144 @@
+/* =========================================================================
+   TEMA MODERNO — camada opcional carregada DEPOIS de styles.css
+   Mesmo HTML e mesmo texto; muda só a linguagem visual:
+   grade arquitetônica, imagens sangrando até a borda, áreas em lista editorial,
+   tipografia maior e mais justa, botões com seta.
+   ========================================================================= */
+
+:root {
+  --edge: calc((100vw - min(100vw - var(--gutter) * 2, var(--container))) / 2);
+}
+
+html, body { overflow-x: clip; }
+
+/* -------- Grade arquitetônica de fundo (linhas verticais finíssimas) -------- */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  margin-inline: auto;
+  width: min(100vw - var(--gutter) * 2, var(--container));
+  background:
+    linear-gradient(90deg, rgba(194,168,128,.07) 1px, transparent 1px) 0 0 / 25% 100%;
+  border-right: 1px solid rgba(194,168,128,.07);
+}
+@media (max-width: 767px) { body::after { background-size: 50% 100%; } }
+
+/* -------- Tipografia mais editorial -------- */
+.h2 {
+  font-size: clamp(2.1rem, 1.2rem + 3.4vw, 4.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+}
+.h2--xl { font-size: clamp(2.3rem, 1.2rem + 4vw, 4.8rem); }
+.eyebrow { display: flex; align-items: center; gap: 14px; }
+.eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; flex: none; }
+.section-head--center .eyebrow { justify-content: center; }
+.rule { display: none; }
+.split__content .h2, .historia__intro .h2, .flagrante__head .h2 { margin-bottom: 2rem; }
+.highlight { font-size: clamp(1.2rem, 1rem + .6vw, 1.5rem); letter-spacing: -0.01em; padding-left: 1.6rem; }
+
+/* -------- Botões com seta -------- */
+.btn { gap: .9rem; padding-right: 1.3rem; }
+.btn::after {
+  content: "\2192"; font-weight: 400; font-size: 1rem; letter-spacing: 0;
+  transition: transform .5s var(--ease);
+}
+.btn:hover::after, .btn:focus-visible::after { transform: translateX(5px); }
+
+/* -------- Header -------- */
+.header.is-scrolled .header__inner { height: 64px; }
+.header__inner { transition: height .5s var(--ease); }
+
+/* -------- Hero: texto maior na base, foto ocupando tudo -------- */
+.hero { align-items: flex-end; }
+@media (min-width: 1024px) {
+  .hero { align-items: flex-end; padding-bottom: 96px; }
+  .hero__content { max-width: 760px; }
+}
+.hero__title { letter-spacing: -0.045em; line-height: 1; }
+
+/* -------- Áreas de atuação: cards viram lista editorial -------- */
+.areas-grid { gap: 0 !important; border-top: 1px solid rgba(122,101,68,.35); }
+.areas-grid .card {
+  background: transparent; border: 0; border-bottom: 1px solid rgba(122,101,68,.35);
+  border-radius: 0; padding: 28px 0;
+  display: grid; grid-template-columns: 44px 1fr; gap: 6px 18px; align-items: start;
+  overflow: hidden; isolation: isolate;
+}
+.areas-grid .card::before { /* preenchimento que desliza no hover */
+  content: ""; position: absolute; inset: 0; z-index: -1; background: var(--bege-claro);
+  transform: scaleX(0); transform-origin: left; transition: transform .7s var(--ease);
+}
+.areas-grid .card:hover { transform: none; box-shadow: none; }
+.areas-grid .card:hover::before { transform: scaleX(1); }
+.areas-grid .card__top { display: contents; }
+.areas-grid .card__num { grid-column: 1; grid-row: 1; padding-top: .45rem; }
+.areas-grid .card__icon { display: none; }
+.areas-grid .card__title { grid-column: 2; grid-row: 1; font-size: clamp(1.35rem, 1rem + 1.2vw, 2rem); letter-spacing: -0.03em; margin: 0; font-weight: 800; }
+.areas-grid .card__text { grid-column: 2; grid-row: 2; max-width: 60ch; }
+@media (min-width: 768px) { .areas-grid { grid-template-columns: 1fr !important; } }
+@media (min-width: 1024px) {
+  .areas-grid .card {
+    grid-template-columns: 80px minmax(0, 5fr) minmax(0, 6fr) 40px;
+    gap: 0 32px; padding: 40px 0; align-items: center;
+  }
+  .areas-grid .card__num { grid-row: 1; padding-top: 0; }
+  .areas-grid .card__title { grid-column: 2; }
+  .areas-grid .card__text { grid-column: 3; grid-row: 1; }
+  .areas-grid .card__icon { display: block; grid-column: 4; grid-row: 1; width: 28px; height: 28px; justify-self: end; }
+  .areas-grid .card:hover .card__title { transform: translateX(10px); }
+  .areas-grid .card__title { transition: transform .7s var(--ease); }
+  .areas-grid .card:hover, .areas-grid .card:hover::before { }
+  .areas-grid .card:hover { padding-inline: 0; }
+}
+.section-head--center { text-align: left; margin-inline: 0; max-width: 980px; }
+.section-head--center .eyebrow { justify-content: flex-start; }
+.section-head__text { margin-inline: 0; }
+#areas .section-cta--center, #outras .section-cta--center { justify-content: flex-start; }
+#outras .section-head { text-align: left; }
+
+/* -------- Seções temáticas: imagem sangrando até a borda da tela -------- */
+.split .frame--offset::before, .historia .frame--offset::before { display: none; }
+.split .frame__img { border-radius: 0; }
+
+@media (max-width: 1023px) {
+  .split .split__media { width: auto; max-width: none; margin-inline: calc(var(--gutter) * -1); }
+  .split .split__media .frame__img { aspect-ratio: 4 / 3 !important; }
+  .section:has(> .split) { padding-top: 0; }
+}
+@media (min-width: 1024px) {
+  .section:has(> .split) { padding-block: 0; }
+  .split { grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; min-height: 760px; }
+  .split .split__media { margin-left: calc(var(--edge) * -1); width: calc(100% + var(--edge)); }
+  .split--reverse .split__media { margin-left: 0; margin-right: calc(var(--edge) * -1); }
+  .split .split__media .frame, .split .split__media .frame__img { height: 100%; }
+  .split .split__media .frame__img { aspect-ratio: auto !important; min-height: 760px; }
+  .split .split__content { align-self: center; padding: 120px 0 120px 96px; max-width: 640px; }
+  .split--reverse .split__content { padding: 120px 96px 120px 0; }
+  .closing .split__media { margin-bottom: 0; }
+}
+
+/* -------- Nossa história -------- */
+
+.historia .frame__img { border-radius: 0; }
+.profile__photo { max-width: none; }
+.profile__photo .frame__img img { filter: grayscale(.35) sepia(.08); transition: filter .8s var(--ease); }
+.profile:hover .profile__photo .frame__img img { filter: saturate(.85) sepia(.06); }
+.profile__name { font-size: clamp(1.8rem, 1.2rem + 2vw, 2.8rem); font-weight: 800; letter-spacing: -0.035em; }
+
+/* -------- Outras situações: grade mais limpa -------- */
+.mini-card { padding: 40px 32px 44px; }
+.mini-card__title { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.025em; }
+
+/* -------- Flagrante -------- */
+.facts strong { font-size: 1.05rem; }
+
+/* -------- Movimento reduzido -------- */
+@media (prefers-reduced-motion: reduce) {
+  .areas-grid .card::before { display: none; }
+  .btn::after { transition: none; }
+}
+
+/* Ajustes finos */
+.section-head .h2 { margin-bottom: 1.8rem; }
+.split__content .h2 { font-size: clamp(2rem, 1.2rem + 2.4vw, 3.5rem); }
