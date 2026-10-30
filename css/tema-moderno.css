@@ -527,3 +527,18 @@ section[id] { scroll-margin-top: 72px; }
 .negado .highlight { border-left: 0; padding-left: 0; padding-top: 1.4rem; position: relative; }
 .negado .highlight::before { content: ""; position: absolute; top: 0; left: 50%; width: 40px; height: 1px; background: var(--bege-escuro); transform: translateX(-50%); }
 .negado { border-top: 1px solid rgba(122,101,68,.18); }
+/* Benefício negado agora em duas colunas */
+.negado .negado__inner { max-width: 600px; text-align: left; align-items: flex-start; }
+.negado .negado__inner .eyebrow { justify-content: flex-start; }
+.negado .negado__inner .eyebrow::after { display: none; }
+.negado__steps { grid-template-columns: 1fr !important; gap: 8px; margin-top: 1.6rem; }
+.negado__steps li { padding: 16px 18px; display: grid; grid-template-columns: 34px 1fr; column-gap: 8px; row-gap: 2px; }
+.negado__steps .negado__num { grid-row: 1 / span 2; margin: 2px 0 0; }
+.negado .highlight { padding-top: 0; padding-left: 1.4rem; border-left: 1px solid var(--bege-escuro); }
+.negado .highlight::before { display: none; }
+/* Imagens novas: enquadramento */
+#auxilio-doenca .frame__img img { object-position: 50% 30%; }
+#auxilio-acidente .frame__img img { object-position: 45% 60%; }
+#salario-maternidade .frame__img img { object-position: 60% 55%; }
+#beneficio-negado .frame__img img { object-position: 50% 30%; }
+.closing__bg img { object-position: 60% 50%; }
