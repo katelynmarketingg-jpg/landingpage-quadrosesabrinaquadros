@@ -322,3 +322,7 @@ body::after { display: none; }
       linear-gradient(0deg, var(--preto) 0%, rgba(15,14,13,.9) 18%, rgba(15,14,13,.55) 36%, rgba(15,14,13,0) 56%);
   }
 }
+/* Cards clicáveis: o card inteiro leva ao WhatsApp */
+.card, .mini-card { cursor: pointer; }
+.card__link { position: absolute; inset: 0; z-index: 2; }
+.card__link:focus-visible { outline: 2px solid var(--bege); outline-offset: -2px; }
