@@ -264,3 +264,26 @@ body::after { display: none; }
   }
   .nav ul { gap: 22px; }
 }
+
+/* Topo em telas grandes: foto ampliada e deslocada para a direita
+   (rosto da Sabrina por volta de 56% da largura, Marcos por volta de 82%),
+   com degradê mais longo e suave */
+@media (min-width: 1280px) {
+  .hero__bg img {
+    top: calc(40% - 28.9vw); bottom: auto; right: auto; left: 12.6vw;
+    width: 117vw; height: auto; max-width: none; object-fit: fill;
+  }
+  .hero__bg::after {
+    background:
+      linear-gradient(90deg, var(--preto) 0%, var(--preto) 28%, rgba(15,14,13,.88) 36%, rgba(15,14,13,.6) 44%, rgba(15,14,13,.28) 52%, rgba(15,14,13,.08) 60%, rgba(15,14,13,0) 68%),
+      linear-gradient(0deg, rgba(15,14,13,.45) 0%, transparent 22%);
+  }
+}
+@media (min-width: 1280px) {
+  .hero__bg::after {
+    background:
+      linear-gradient(180deg, rgba(15,14,13,.55) 0, rgba(15,14,13,0) 150px),
+      linear-gradient(90deg, var(--preto) 0%, var(--preto) 28%, rgba(15,14,13,.88) 36%, rgba(15,14,13,.6) 44%, rgba(15,14,13,.28) 52%, rgba(15,14,13,.08) 60%, rgba(15,14,13,0) 68%),
+      linear-gradient(0deg, rgba(15,14,13,.45) 0%, transparent 22%);
+  }
+}
