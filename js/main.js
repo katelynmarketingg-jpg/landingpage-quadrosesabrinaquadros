@@ -9,7 +9,7 @@
      CONFIGURAÇÃO — troque aqui o número do WhatsApp (DDI + DDD + número, só dígitos)
      Ex.: '5551999999999'
      ----------------------------------------------------------------------- */
-  var WHATSAPP_NUMBER = '55XXXXXXXXXXX';
+  var WHATSAPP_NUMBER = '5551999895004';
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
