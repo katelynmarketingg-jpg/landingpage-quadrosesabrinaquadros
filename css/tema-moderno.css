@@ -572,3 +572,6 @@ section[id] { scroll-margin-top: 72px; }
 /* Retratos com cor natural (sem dessaturação) */
 .profile__photo .frame__img img, .profile:hover .profile__photo .frame__img img { filter: saturate(1.08) contrast(1.03); }
 .historia__band-img { filter: saturate(1.05) contrast(1.03); }
+/* Flagrante: sem coluna "grudada" e lista aparece junto com o resto */
+@media (min-width: 1024px) { .flagrante__head { position: static !important; } .flagrante__grid { align-items: center; } }
+.js .facts li.reveal { transition-delay: 0s; }
