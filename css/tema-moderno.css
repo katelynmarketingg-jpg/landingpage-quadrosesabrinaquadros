@@ -173,7 +173,7 @@ body::after {
 @media (max-width: 1023px) { .flagrante__photo { margin-bottom: 2rem; } }
 @media (min-width: 1024px) { .flagrante__head { top: 100px; } }
 #salario-maternidade .frame__img img { object-position: 45% 35%; }
-#bpc-loas .frame__img img { object-position: 50% 30%; }
+#bpc-loas .frame__img img { object-position: 50% 32%; }
 #criminal .frame__img img { object-position: 55% 45%; }
 
 /* Foto do topo um pouco mais clara */
