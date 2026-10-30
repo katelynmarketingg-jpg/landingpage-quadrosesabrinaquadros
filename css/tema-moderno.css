@@ -243,3 +243,24 @@ body::after { display: none; }
   .profile__photo { max-width: 280px; }
   .flagrante__photo { max-width: 240px; }
 }
+
+/* Topo: texto mais à esquerda, foto dos dois mais à direita */
+@media (min-width: 1024px) {
+  .hero .container { max-width: none; padding-left: clamp(32px, 4vw, 80px); padding-right: clamp(32px, 4vw, 80px); }
+  .hero__bg img { width: 62%; object-position: 70% 30%; }
+  .hero__bg::after {
+    background:
+      linear-gradient(90deg, var(--preto) 0%, var(--preto) 40%, rgba(15,14,13,.55) 50%, rgba(15,14,13,0) 66%),
+      linear-gradient(0deg, rgba(15,14,13,.45) 0%, transparent 22%);
+  }
+}
+
+/* Notebooks menores (1024–1279px): foto em cima, texto embaixo, como no tablet */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero { --hero-img: 640px; min-height: 0; padding-top: calc(var(--hero-img) - 60px); padding-bottom: 110px; }
+  .hero__bg img { left: 0; right: auto; width: 100%; height: var(--hero-img); object-position: 50% 30%; }
+  .hero__bg::after {
+    background: linear-gradient(180deg, rgba(15,14,13,.3) 0, rgba(15,14,13,0) 110px, rgba(15,14,13,0) calc(var(--hero-img) - 220px), var(--preto) calc(var(--hero-img) - 40px), var(--preto) 100%);
+  }
+  .nav ul { gap: 22px; }
+}
