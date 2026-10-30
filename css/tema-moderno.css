@@ -539,7 +539,7 @@ section[id] { scroll-margin-top: 72px; }
 /* Imagens novas: enquadramento */
 #auxilio-doenca .frame__img img { object-position: 50% 30%; }
 #auxilio-acidente .frame__img img { object-position: 45% 60%; }
-#salario-maternidade .frame__img img { object-position: 60% 55%; }
+#salario-maternidade .frame__img img { object-position: 45% 45%; }
 #beneficio-negado .frame__img img { object-position: 50% 30%; }
 .closing__bg img { object-position: 60% 50%; }
 .section .negado__lawyer { background: var(--bege-claro); border-left: 2px solid var(--bege-escuro); padding: 18px 20px; margin: .4rem 0 0; color: var(--texto); }
