@@ -138,3 +138,54 @@
     parallax();
   }
 })();
+
+/* 8. Abas de Soluções (por área) + links do menu que abrem uma aba */
+(function () {
+  var root = document.querySelector('[data-tabs]');
+  if (!root) return;
+  var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+  function select(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+    var list = tab.parentNode;
+    list.scrollLeft = tab.offsetLeft - (list.clientWidth - tab.offsetWidth) / 2;
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(t); });
+    t.addEventListener('keydown', function (e) {
+      var k = e.key, n = null;
+      if (k === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      if (k === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (k === 'Home') n = tabs[0];
+      if (k === 'End') n = tabs[tabs.length - 1];
+      if (n) { e.preventDefault(); select(n, true); }
+    });
+  });
+  function openFromHash() {
+    var m = location.hash.match(/^#sol-(.+)$/);
+    if (!m) return;
+    var tab = document.getElementById('tab-' + m[1]);
+    if (tab) {
+      select(tab);
+      setTimeout(function () { root.scrollIntoView({ block: 'start' }); }, 60);
+    }
+  }
+  document.querySelectorAll('[data-tab-link]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var tab = document.getElementById('tab-' + a.getAttribute('data-tab-link'));
+      if (!tab) return;
+      e.preventDefault();
+      select(tab);
+      a.blur();
+      history.replaceState(null, '', '#sol-' + a.getAttribute('data-tab-link'));
+      root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  window.addEventListener('hashchange', openFromHash);
+  openFromHash();
+})();

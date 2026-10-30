@@ -81,9 +81,19 @@
 
     <nav class="nav" id="menu" aria-label="Menu principal">
       <ul>
-        <li><a href="#areas">Áreas de atuação</a></li>
         <li><a href="#historia">Nossa história</a></li>
-        <li><a href="#outras">Outras situações</a></li>
+        <li><a href="#areas">Áreas de atuação</a></li>
+        <li class="nav__drop">
+          <a href="#solucoes" class="nav__drop-toggle" aria-haspopup="true">Soluções <span class="nav__caret" aria-hidden="true"></span></a>
+          <ul class="nav__sub">
+              <li><a href="#sol-previdenciario" data-tab-link="previdenciario">Previdenciário</a></li>
+              <li><a href="#sol-trabalhista" data-tab-link="trabalhista">Trabalhista</a></li>
+              <li><a href="#sol-criminal" data-tab-link="criminal">Criminal</a></li>
+              <li><a href="#sol-familia" data-tab-link="familia">Família</a></li>
+              <li><a href="#sol-sucessoes" data-tab-link="sucessoes">Sucessões</a></li>
+              <li><a href="#sol-civel" data-tab-link="civel">Cível</a></li>
+          </ul>
+        </li>
         <li>
           <a class="btn btn--outline btn--sm" data-wa="Olá, gostaria de entrar em contato com o escritório." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whatsapp"/></svg>
@@ -405,6 +415,277 @@
   </div>
 </section>
 
+<!-- ===================== SOLUÇÕES (abas por área) ===================== -->
+<section class="section section--beige" id="solucoes" aria-labelledby="sol-title">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow reveal">Soluções</p>
+      <h2 class="h2 reveal" id="sol-title">Como podemos ajudar em cada área.</h2>
+      <p class="reveal">Escolha uma área para ver, de forma resumida, as principais demandas em que atuamos.</p>
+    </header>
+    <div class="tabs" data-tabs>
+      <div class="tabs__list" role="tablist" aria-label="Áreas do Direito">
+        <button class="tabs__tab" role="tab" id="tab-previdenciario" aria-controls="sol-previdenciario" aria-selected="true">Previdenciário</button>
+        <button class="tabs__tab" role="tab" id="tab-trabalhista" aria-controls="sol-trabalhista" aria-selected="false" tabindex="-1">Trabalhista</button>
+        <button class="tabs__tab" role="tab" id="tab-criminal" aria-controls="sol-criminal" aria-selected="false" tabindex="-1">Criminal</button>
+        <button class="tabs__tab" role="tab" id="tab-familia" aria-controls="sol-familia" aria-selected="false" tabindex="-1">Família</button>
+        <button class="tabs__tab" role="tab" id="tab-sucessoes" aria-controls="sol-sucessoes" aria-selected="false" tabindex="-1">Sucessões</button>
+        <button class="tabs__tab" role="tab" id="tab-civel" aria-controls="sol-civel" aria-selected="false" tabindex="-1">Cível</button>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="sol-previdenciario" aria-labelledby="tab-previdenciario">
+        <h3 class="tabs__panel-title">Direito Previdenciário</h3>
+        <ul class="sol-grid" role="list">
+          <li class="sol-card">
+            <h4 class="sol-card__title">Aposentadoria por idade</h4>
+            <p>Análise do tempo de contribuição e da idade mínima exigida.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre aposentadoria por idade." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Aposentadoria por idade"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Aposentadoria por tempo de contribuição</h4>
+            <p>Verificação das regras de transição aplicáveis ao seu histórico.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre aposentadoria por tempo de contribuição." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Aposentadoria por tempo de contribuição"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Aposentadoria especial</h4>
+            <p>Para quem trabalhou exposto a agentes nocivos à saúde.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre aposentadoria especial." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Aposentadoria especial"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Aposentadoria da pessoa com deficiência</h4>
+            <p>Regras próprias de idade e de tempo de contribuição.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre aposentadoria da pessoa com deficiência." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Aposentadoria da pessoa com deficiência"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Auxílio por incapacidade temporária</h4>
+            <p>O antigo auxílio-doença, para quem está afastado por doença.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre auxílio por incapacidade temporária." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Auxílio por incapacidade temporária"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Aposentadoria por incapacidade permanente</h4>
+            <p>Quando a incapacidade para o trabalho é definitiva.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre aposentadoria por incapacidade permanente." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Aposentadoria por incapacidade permanente"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Auxílio-acidente</h4>
+            <p>Para sequelas que reduzem a capacidade de trabalho.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre auxílio-acidente." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Auxílio-acidente"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">BPC/LOAS</h4>
+            <p>Benefício para idosos e pessoas com deficiência de baixa renda.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre BPC/LOAS." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre BPC/LOAS"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Salário-maternidade</h4>
+            <p>Inclusive para autônomas, desempregadas e em casos de adoção.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre salário-maternidade." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Salário-maternidade"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Pensão por morte</h4>
+            <p>Proteção previdenciária aos dependentes do segurado.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre pensão por morte." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Pensão por morte"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Revisão de benefícios</h4>
+            <p>Conferência do valor e dos cálculos de benefícios já concedidos.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre revisão de benefícios." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Revisão de benefícios"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Planejamento previdenciário</h4>
+            <p>Estudo do melhor caminho e momento para se aposentar.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre planejamento previdenciário." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Planejamento previdenciário"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="sol-trabalhista" aria-labelledby="tab-trabalhista" hidden>
+        <h3 class="tabs__panel-title">Direito Trabalhista</h3>
+        <ul class="sol-grid" role="list">
+          <li class="sol-card">
+            <h4 class="sol-card__title">Verbas rescisórias</h4>
+            <p>Conferência do que deveria ser pago no fim do contrato.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre verbas rescisórias." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Verbas rescisórias"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Rescisão indireta</h4>
+            <p>Quando faltas graves do empregador justificam o encerramento.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre rescisão indireta." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Rescisão indireta"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Horas extras</h4>
+            <p>Cálculo de jornadas além do contratado e dos reflexos.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre horas extras." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Horas extras"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">FGTS não depositado</h4>
+            <p>Verificação dos depósitos e da multa de 40%.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre FGTS não depositado." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre FGTS não depositado"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Reconhecimento de vínculo</h4>
+            <p>Para quem trabalhou sem carteira assinada.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre reconhecimento de vínculo." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Reconhecimento de vínculo"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Acidente e doença do trabalho</h4>
+            <p>Direitos ligados a acidentes e doenças ocupacionais.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre acidente e doença do trabalho." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Acidente e doença do trabalho"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Insalubridade e periculosidade</h4>
+            <p>Adicionais devidos por condições de risco.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre insalubridade e periculosidade." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Insalubridade e periculosidade"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Assédio moral</h4>
+            <p>Orientação em situações de constrangimento no trabalho.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre assédio moral." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Assédio moral"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="sol-criminal" aria-labelledby="tab-criminal" hidden>
+        <h3 class="tabs__panel-title">Direito Criminal</h3>
+        <ul class="sol-grid" role="list">
+          <li class="sol-card">
+            <h4 class="sol-card__title">Inquérito e depoimento</h4>
+            <p>Acompanhamento desde a fase de investigação.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre inquérito e depoimento." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Inquérito e depoimento"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Prisão em flagrante</h4>
+            <p>Atuação imediata e na audiência de custódia.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre prisão em flagrante." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Prisão em flagrante"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Liberdade provisória e habeas corpus</h4>
+            <p>Medidas para responder ao processo em liberdade.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre liberdade provisória e habeas corpus." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Liberdade provisória e habeas corpus"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Defesa em processo criminal</h4>
+            <p>Atuação técnica em todas as fases do processo.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre defesa em processo criminal." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Defesa em processo criminal"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Tribunal do Júri</h4>
+            <p>Defesa em processos de competência do Júri.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre tribunal do Júri." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Tribunal do Júri"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Recursos</h4>
+            <p>Revisão de decisões nos tribunais.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre recursos." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Recursos"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Execução penal</h4>
+            <p>Progressão de regime e demais direitos na execução.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre execução penal." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Execução penal"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="sol-familia" aria-labelledby="tab-familia" hidden>
+        <h3 class="tabs__panel-title">Direito de Família</h3>
+        <ul class="sol-grid" role="list">
+          <li class="sol-card">
+            <h4 class="sol-card__title">Divórcio consensual</h4>
+            <p>Quando há acordo, inclusive em cartório.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre divórcio consensual." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Divórcio consensual"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Divórcio litigioso</h4>
+            <p>Quando não há consenso entre as partes.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre divórcio litigioso." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Divórcio litigioso"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Pensão alimentícia</h4>
+            <p>Fixação, revisão e cobrança de alimentos.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre pensão alimentícia." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Pensão alimentícia"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Guarda e convivência</h4>
+            <p>Definição da guarda e do convívio com os filhos.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre guarda e convivência." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Guarda e convivência"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">União estável</h4>
+            <p>Reconhecimento e dissolução da união.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre união estável." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre União estável"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Partilha de bens</h4>
+            <p>Divisão do patrimônio do casal.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre partilha de bens." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Partilha de bens"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Investigação de paternidade</h4>
+            <p>Reconhecimento do vínculo de filiação.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre investigação de paternidade." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Investigação de paternidade"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="sol-sucessoes" aria-labelledby="tab-sucessoes" hidden>
+        <h3 class="tabs__panel-title">Direito das Sucessões</h3>
+        <ul class="sol-grid" role="list">
+          <li class="sol-card">
+            <h4 class="sol-card__title">Inventário em cartório</h4>
+            <p>Quando há acordo entre os herdeiros e os requisitos legais.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre inventário em cartório." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Inventário em cartório"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Inventário judicial</h4>
+            <p>Quando há divergência ou herdeiros menores.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre inventário judicial." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Inventário judicial"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Testamento</h4>
+            <p>Orientação para organizar a vontade sobre os bens.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre testamento." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Testamento"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Alvará judicial</h4>
+            <p>Liberação de valores deixados pelo falecido.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre alvará judicial." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Alvará judicial"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Planejamento sucessório</h4>
+            <p>Organização prévia da transmissão do patrimônio.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre planejamento sucessório." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Planejamento sucessório"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="sol-civel" aria-labelledby="tab-civel" hidden>
+        <h3 class="tabs__panel-title">Direito Cível</h3>
+        <ul class="sol-grid" role="list">
+          <li class="sol-card">
+            <h4 class="sol-card__title">Contratos</h4>
+            <p>Análise, elaboração e revisão de contratos.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre contratos." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Contratos"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Indenizações</h4>
+            <p>Danos morais e materiais.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre indenizações." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Indenizações"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Direito do consumidor</h4>
+            <p>Cobranças indevidas, produtos e serviços com defeito.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre direito do consumidor." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Direito do consumidor"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Cobranças e execuções</h4>
+            <p>Recebimento de valores devidos.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre cobranças e execuções." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Cobranças e execuções"></a>
+          </li>
+          <li class="sol-card">
+            <h4 class="sol-card__title">Responsabilidade civil</h4>
+            <p>Reparação de prejuízos causados por terceiros.</p>
+            <a class="card__link" data-wa="Olá, gostaria de orientação sobre responsabilidade civil." href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp sobre Responsabilidade civil"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== NOSSA HISTÓRIA ===================== -->
 <section class="section section--dark historia section--divided" id="historia" aria-labelledby="historia-title">
   <div class="container">
@@ -431,7 +712,7 @@
 
         <div class="big-number reveal" aria-hidden="true">
           <span class="big-number__value" data-count="27">27</span>
-          <span class="big-number__label">anos de<br>advocacia criminal</span>
+          <span class="big-number__label">anos de<br>experiência</span>
         </div>
       </div>
     </div>
