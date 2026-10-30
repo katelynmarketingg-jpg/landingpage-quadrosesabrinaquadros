@@ -575,3 +575,9 @@ section[id] { scroll-margin-top: 72px; }
 /* Flagrante: sem coluna "grudada" e lista aparece junto com o resto */
 @media (min-width: 1024px) { .flagrante__head { position: static !important; } .flagrante__grid { align-items: center; } }
 .js .facts li.reveal { transition-delay: 0s; }
+/* Topo: escrita um pouco menor */
+@media (min-width: 1024px) {
+  .hero--center .hero__title { font-size: clamp(1.8rem, .9rem + 2.2vw, 2.9rem); }
+  .hero--center .hero__text { font-size: .94rem; }
+  .hero--center .hero__eyebrow { font-size: .66rem; }
+}
